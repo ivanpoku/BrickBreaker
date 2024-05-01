@@ -162,6 +162,15 @@
   <ItemGroup>
     <None Include="Resources\xpBarFull.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\panoramaTest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minecraft Pickaxe breaking block meme Sound Effect HD.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stoneBlockBreak.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

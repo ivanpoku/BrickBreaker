@@ -15,6 +15,7 @@ namespace BrickBreaker
 
         Image minecraftLogo = Properties.Resources.minecraftLogo;
         Rectangle titleRec = new Rectangle(25, -150, 800, 500);
+
         public MenuScreen()
         {
             InitializeComponent();
@@ -41,5 +42,6 @@ namespace BrickBreaker
         {
             e.Graphics.DrawImage(minecraftLogo, titleRec);
         }
+
     }
 }

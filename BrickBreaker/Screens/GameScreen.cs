@@ -44,6 +44,8 @@ namespace BrickBreaker
         SolidBrush blockBrush = new SolidBrush(Color.Red);
         Pen ballPen = new Pen(Color.Black);
 
+
+        //Block and Icon Textures
         Image dirtBlock = Properties.Resources.dirt;
         Image stoneBlock = Properties.Resources.stone;
         Image hearts = Properties.Resources.heartIcon2;
@@ -51,10 +53,13 @@ namespace BrickBreaker
         Image xpBar = Properties.Resources.xpBarEmpty;
         Image fullXpBar = Properties.Resources.xpBarFull;
 
+        SoundPlayer blockBreak = new SoundPlayer(Properties.Resources.stoneBlockBreak);
         //Lives
         Rectangle life1 = new Rectangle(265, 330, 25, 25);
         Rectangle life2 = new Rectangle(315, 330, 25, 25);
         Rectangle life3 = new Rectangle(365, 330, 25, 25);
+
+        //Exp Bar
         Rectangle xpRect = new Rectangle(200, 370, 250, 5);
         Rectangle xpFullRect = new Rectangle(-300, 370, 250, 10);
 
@@ -120,6 +125,7 @@ namespace BrickBreaker
 
         }
 
+        
         static void WriteData(XmlWriter writer, Point point, int id, Size size)
         {
             writer.WriteStartElement("brick");
@@ -231,6 +237,7 @@ namespace BrickBreaker
                 if (ball.BlockCollision(b))
                 {
                     blocks.Remove(b);
+                    blockBreak.Play();
 
                     if (blocks.Count > blocksNum * 0.30 && blocks.Count < blocksNum * 0.45)
                     {
@@ -292,11 +299,11 @@ namespace BrickBreaker
             }
 
             //Draw Hearts
-
             e.Graphics.DrawImage(hearts, life1);
             e.Graphics.DrawImage(hearts, life2);
             e.Graphics.DrawImage(hearts, life3);
 
+            //Draw Exp Bar
             e.Graphics.DrawImage(xpBar, xpRect);
             e.Graphics.DrawImage(fullXpBar, xpFullRect);
 

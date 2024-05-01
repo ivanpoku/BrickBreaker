@@ -101,33 +101,21 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;level1&gt;
-        ///	&lt;brick&gt;
-        ///		&lt;x&gt;300&lt;/x&gt;
-        ///		&lt;y&gt;50&lt;/y&gt;
-        ///		&lt;hp&gt;1&lt;/hp&gt;
-        ///	&lt;/brick&gt;
-        ///	&lt;brick&gt;
-        ///		&lt;x&gt;350&lt;/x&gt;
-        ///		&lt;y&gt;50&lt;/y&gt;
-        ///		&lt;hp&gt;2&lt;/hp&gt;
-        ///	&lt;/brick&gt;
-        ///&lt;/level1&gt;
-        ///.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static string level1 {
+        internal static System.Drawing.Bitmap minecraftLogo {
             get {
-                return ResourceManager.GetString("level1", resourceCulture);
+                object obj = ResourceManager.GetObject("minecraftLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap minecraftLogo {
+        internal static System.Drawing.Bitmap panoramaTest {
             get {
-                object obj = ResourceManager.GetObject("minecraftLogo", resourceCulture);
+                object obj = ResourceManager.GetObject("panoramaTest", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -149,6 +137,15 @@ namespace BrickBreaker.Properties {
             get {
                 object obj = ResourceManager.GetObject("stone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream stoneBlockBreak {
+            get {
+                return ResourceManager.GetStream("stoneBlockBreak", resourceCulture);
             }
         }
         
