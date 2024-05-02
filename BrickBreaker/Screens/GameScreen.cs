@@ -15,6 +15,8 @@ using System.Media;
 using System.Xml;
 using BrickBreaker.Properties;
 using System.Resources;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Mail;
 
 namespace BrickBreaker
 {
@@ -30,6 +32,8 @@ namespace BrickBreaker
         int lives;
         int score;
         int blocksNum;
+
+        public static bool newGame = false;
 
         // Paddle and Ball objects
         Paddle paddle;
@@ -71,11 +75,13 @@ namespace BrickBreaker
         {
             InitializeComponent();
             OnStart();
+
         }
 
 
         public void OnStart()
         {
+
             //set life counter
             lives = 3;
 
@@ -99,9 +105,11 @@ namespace BrickBreaker
             int xSpeed = 6;
             int ySpeed = 6;
             int ballSize = 20;
-            
 
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
+
+
+
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
 
@@ -125,7 +133,7 @@ namespace BrickBreaker
 
         }
 
-        
+
         static void WriteData(XmlWriter writer, Point point, int id, Size size)
         {
             writer.WriteStartElement("brick");
@@ -228,6 +236,8 @@ namespace BrickBreaker
 
             }
 
+
+
             // Check for collision of ball with paddle, (incl. paddle movement)
             ball.PaddleCollision(paddle);
 
@@ -244,7 +254,7 @@ namespace BrickBreaker
                         xpFullRect = new Rectangle(140, 367, 250, 10);
                         Refresh();
                     }
-                    if (blocks.Count == blocksNum/2 + 1)
+                    if (blocks.Count == blocksNum / 2 + 1)
                     {
                         xpFullRect = new Rectangle(90, 367, 250, 10);
                         Refresh();
@@ -282,6 +292,7 @@ namespace BrickBreaker
             form.Controls.Add(ps);
             form.Controls.Remove(this);
         }
+
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {

@@ -32,6 +32,7 @@
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.scoreOutput = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pauseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -60,11 +61,28 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "0";
             // 
+            // pauseButton
+            // 
+            this.pauseButton.BackColor = System.Drawing.Color.DimGray;
+            this.pauseButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.pauseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.pauseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.pauseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pauseButton.Font = new System.Drawing.Font("Headliner No. 45", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pauseButton.ForeColor = System.Drawing.Color.White;
+            this.pauseButton.Location = new System.Drawing.Point(13, 328);
+            this.pauseButton.Name = "pauseButton";
+            this.pauseButton.Size = new System.Drawing.Size(45, 45);
+            this.pauseButton.TabIndex = 2;
+            this.pauseButton.Text = "I I";
+            this.pauseButton.UseVisualStyleBackColor = false;
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Controls.Add(this.pauseButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.scoreOutput);
             this.DoubleBuffered = true;
@@ -82,5 +100,6 @@
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label scoreOutput;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button pauseButton;
     }
 }
