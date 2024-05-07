@@ -73,8 +73,27 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Paddle.cs" />
+    <Compile Include="Powerup.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\EndScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\EndScreen.Designer.cs">
+      <DependentUpon>EndScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\LevelScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\LevelScreen.Designer.cs">
+      <DependentUpon>LevelScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\MenuScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,24 +106,43 @@
     <Compile Include="Screens\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\PauseScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\PauseScreen.Designer.cs">
+      <DependentUpon>PauseScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartLevelScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StartLevelScreen.Designer.cs">
+      <DependentUpon>StartLevelScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Screens\EndScreen.resx">
+      <DependentUpon>EndScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\LevelScreen.resx">
+      <DependentUpon>LevelScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\MenuScreen.resx">
       <DependentUpon>MenuScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PauseScreen.resx">
+      <DependentUpon>PauseScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartLevelScreen.resx">
+      <DependentUpon>StartLevelScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -133,13 +171,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Minecraft.ttf" />
+    <None Include="Resources\MinecraftBold-nMK1.otf" />
     <None Include="Resources\stone.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dirt.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\level1.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minecraftLogo.png" />
@@ -163,13 +200,306 @@
     <None Include="Resources\xpBarFull.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\panoramaTest.png" />
+    <None Include="Resources\Level1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Minecraft Pickaxe breaking block meme Sound Effect HD.wav" />
+    <None Include="Resources\oak_planks.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\stoneBlockBreak.wav" />
+    <None Include="Resources\dirt1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\bedrock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coal_ore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nether-portal-gif-i-got-it-from-the-game-files-and-upscaled-v0-841666uly00b1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oak_log.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grass_block.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedrock %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Netherite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedrock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iron_ore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold_ore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diamond_ore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\obsidian.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\netherrack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quartz_ore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\end_bricks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\end_stone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\endframe_side.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\endframe_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cobblestone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stonebrick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gravel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coal_ore %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dragon_egg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lava.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\water.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oak_leaves.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portal_placeholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level3.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level4.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level5.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\titleBackground.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minecraftBkgd1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level1Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level2Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level3Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level4Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level5Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level6Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level7Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level8Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level9Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level10Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level11Img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level1Img1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xpBarFull1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level6.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level7.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level8.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level9.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level10.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level11.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Level12.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seeds_wheat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stone_pickaxe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Friend2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\heart_flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wheat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quartz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold_ingot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iron_ingot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bucket_lava.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\water_breathing_effect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bubble_pop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bubble.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ender_eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\netherite_ingot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\netherite_pickaxe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diamond_pickaxe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iron_pickaxe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold_pickaxe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_enchanted.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apple_golden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minecraftDieSound.wav.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minecraftPop.wav.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dirtBreak.wav.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ancientDebrisBreak.wav.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\waterBreak.wav.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\click.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magma_cream.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\endBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\netherBackground.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

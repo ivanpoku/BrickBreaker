@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BrickBreaker.Screens;
 
 namespace BrickBreaker
 {
@@ -16,9 +17,13 @@ namespace BrickBreaker
         Image minecraftLogo = Properties.Resources.minecraftLogo;
         Rectangle titleRec = new Rectangle(25, -150, 800, 500);
 
+        //Rectangle titleRec;
         public MenuScreen()
         {
             InitializeComponent();
+            Form1.SetLevelFonts(this);
+
+            titleRec = new Rectangle(0,-50,this.Right, 500);
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -29,7 +34,7 @@ namespace BrickBreaker
         private void playButton_Click(object sender, EventArgs e)
         {
             // Goes to the game screen
-            GameScreen gs = new GameScreen();
+            GameScreen gs = new GameScreen(false);
             Form form = this.FindForm();
 
             form.Controls.Add(gs);
@@ -43,5 +48,16 @@ namespace BrickBreaker
             e.Graphics.DrawImage(minecraftLogo, titleRec);
         }
 
+        private void levelButton_Click(object sender, EventArgs e)
+        {
+            // Goes to the level screen
+            LevelScreen ls = new LevelScreen();
+            Form form = this.FindForm();
+
+            form.Controls.Add(ls);
+            form.Controls.Remove(this);
+
+            ls.Location = new Point((form.Width - ls.Width) / 2, (form.Height - ls.Height) / 2);
+        }
     }
 }
