@@ -70,7 +70,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(361, 84);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Don\'t let the timer OR your lives run out!";
+            this.label2.Text = "Don\'t let your Hearts run out, Pick-up-Powerups!";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3

@@ -28,6 +28,7 @@ namespace BrickBreaker
 {
     public partial class GameScreen : UserControl
     {
+        bool timerKills = false; //Set to true if you want the game to have a timer that can kill you
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
@@ -41,6 +42,7 @@ namespace BrickBreaker
         int x, y, width, height, id;
         public bool isPaused = false;
         public static int right, down;
+        int timerIncreases = 0;
 
         // Paddle and Ball objects
         public static Paddle paddle;
@@ -220,7 +222,7 @@ namespace BrickBreaker
             projectiles.Clear();
             activePowerups.Clear();
             fallingPowerups.Clear();
-  
+
             lives = MAX_LIVES;
             timerToSecondsConversion = (double)1000 / (double)(gameTimer.Interval);
 
@@ -381,14 +383,16 @@ namespace BrickBreaker
         {
             paddle.x = (this.Width / 2) - (paddle.width / 2);
             paddle.y = (this.Height - paddle.height) - 60;
-            
+
             ball.x = ((paddle.x - (ball.radius * 2)) + (paddle.width / 2));
             ball.y = paddle.y - (ball.radius * 2) - paddle.height;
             ball.yVel = -1 * Math.Abs(ball.yVel);
 
             Refresh();
+            Graphics g = this.CreateGraphics();
+            g.FillRectangle(new SolidBrush(Color.FromArgb(30, 0, 0, 0)), new Rectangle(0, 0, right, down));
 
-            Task.Delay(1000).Wait();
+            Task.Delay(800).Wait();
 
         }
 
@@ -419,8 +423,9 @@ namespace BrickBreaker
         }
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            timerIncreases++;
             currentTime--;
-            if (currentTime < 0) { lives = 0; }
+            if (currentTime < 0 && timerKills) { lives = 0; } //This was another thing we used for when you could also die from the timer running out, we just decided it doesnt fit the game.
 
             sunPoint = new PointF(right - (float)(((double)right / (double)timeLimit) * (double)currentTime), 0);
 
@@ -439,20 +444,6 @@ namespace BrickBreaker
                 projectiles[p].Move();
             }
 
-            if (ball.WallCollision(this))
-            { //run wall collision and respond if the ball has touched the bottom
-
-                lives--;
-
-                // Moves the ball back to origin
-                resetBall();
-            }
-
-            if (lives == 0)
-            {
-                gameTimer.Enabled = false;
-                OnEnd();
-            }
 
             #region Blocks 
             //Check if ball has collided with any blocks
@@ -546,6 +537,21 @@ namespace BrickBreaker
             bValue = (((double)shadowColorOne.B * (dayPercentage)) + ((double)shadowColorTwo.B * (1 - dayPercentage)));
             shadowBrush.Color = Color.FromArgb((int)aValue, (int)rValue, (int)gValue, (int)bValue);
             #endregion
+
+            if (ball.WallCollision(this))
+            { //run wall collision and respond if the ball has touched the bottom
+
+                lives--;
+
+                // Moves the ball back to origin
+                resetBall();
+            }
+
+            if (lives == 0)
+            {
+                gameTimer.Enabled = false;
+                OnEnd();
+            }
             Refresh();
         }
 
@@ -678,8 +684,15 @@ namespace BrickBreaker
             int percentage = (timeLimit - currentTime);
             int fontSize = (int)(percentage * fontIncrease) + MIN_FONT_SIZE;
             int colorSize = (int)(percentage * ((double)255 / (double)timeLimit));
+            colorSize = (colorSize > 255) ? 255 : colorSize;
             Color fontColor = Color.FromArgb(255, colorSize, 255, colorSize);
-            string timeLimitString = "" + (double)currentTime / timerToSecondsConversion;
+            //We found this a bit confusing on the final days because its pretty much random whether you go faster or slower, so we changed this to just be a timer up.
+            string timeLimitString = "" + timerIncreases / timerToSecondsConversion;
+            if (timerKills)
+            {
+                timeLimitString = "" + (double)currentTime / timerToSecondsConversion; //This would display your time compared to the max time in the level,
+            }
+            fontSize = (fontSize > MAX_FONT_SIZE) ? MAX_FONT_SIZE : fontSize;
             e.Graphics.DrawString(timeLimitString, new Font(Form1.pfc.Families[0], fontSize), new SolidBrush(fontColor), new PointF(timeDisplayPoint.X - fontSize, timeDisplayPoint.Y - fontSize));
             #endregion
 
