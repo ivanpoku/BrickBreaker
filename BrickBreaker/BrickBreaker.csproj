@@ -82,6 +82,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Screens\CustomizerScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\CustomizerScreen.Designer.cs">
+      <DependentUpon>CustomizerScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\EndCredits.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\EndCredits.Designer.cs">
+      <DependentUpon>EndCredits.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\EndScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,6 +137,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\CustomizerScreen.resx">
+      <DependentUpon>CustomizerScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\EndCredits.resx">
+      <DependentUpon>EndCredits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\EndScreen.resx">
       <DependentUpon>EndScreen.cs</DependentUpon>
@@ -500,6 +518,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\netherBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\big-pig-face.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fighters.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snowmanFace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cake_side.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

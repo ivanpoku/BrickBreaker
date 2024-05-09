@@ -50,7 +50,7 @@ namespace BrickBreaker
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
 
-        System.Drawing.Image player = Properties.Resources.Friend2;
+        public static System.Drawing.Image player = Properties.Resources.Friend2;
         System.Drawing.Image hearts = Properties.Resources.heart_flash;
         System.Drawing.Image fullXpBar = Properties.Resources.xpBarFull;
 
@@ -220,6 +220,8 @@ namespace BrickBreaker
 
         public void OnStart(bool immidiateStart)
         {
+
+
             projectiles.Clear();
             lives = MAX_LIVES;
             timerToSecondsConversion = (double)1000 / (double)(gameTimer.Interval);
@@ -463,6 +465,7 @@ namespace BrickBreaker
                     {
                         BlockCollision(b, projectiles[p].tools, projectiles[p].strength, 0);
                         if (p < projectiles.Count) { projectiles[p].OnCollision(); }
+
                     }
                 }
 
@@ -554,6 +557,7 @@ namespace BrickBreaker
 
             form.Controls.Add(gs);
             form.Controls.Remove(this);
+        
         }
 
         double calculateScore()

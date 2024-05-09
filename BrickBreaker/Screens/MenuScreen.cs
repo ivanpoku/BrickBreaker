@@ -59,5 +59,17 @@ namespace BrickBreaker
 
             ls.Location = new Point((form.Width - ls.Width) / 2, (form.Height - ls.Height) / 2);
         }
+
+        private void skinsButton_Click(object sender, EventArgs e)
+        {
+            // Goes to the skin viewer
+            CustomizerScreen cs = new CustomizerScreen();
+            Form form = this.FindForm();
+
+            form.Controls.Add(cs);
+            form.Controls.Remove(this);
+
+            cs.Location = new Point((form.Width - cs.Width) / 2, (form.Height - cs.Height) / 2);
+        }
     }
 }
