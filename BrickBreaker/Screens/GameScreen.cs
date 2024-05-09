@@ -236,7 +236,8 @@ namespace BrickBreaker
             }
             if (Form1.IsWithinRange(Form1.currentLevel, 12, 12))
             {
-                BackgroundImage = Properties.Resources.endBkgd;
+                BackColor = Color.Black;
+                BackgroundImage = null;
             }
 
             //Start immidiately, or give the player a StartLevelScreen first.
@@ -550,6 +551,12 @@ namespace BrickBreaker
             rValue = (((double)shadowColorOne.R * (dayPercentage)) + ((double)shadowColorTwo.R * (1 - dayPercentage)));
             gValue = (((double)shadowColorOne.G * (dayPercentage)) + ((double)shadowColorTwo.G * (1 - dayPercentage)));
             bValue = (((double)shadowColorOne.B * (dayPercentage)) + ((double)shadowColorTwo.B * (1 - dayPercentage)));
+
+            aValue = (aValue < 0) ? 0 : aValue;
+            rValue = (rValue < 0) ? 0 : rValue;
+            gValue = (gValue < 0) ? 0 : gValue;
+            bValue = (bValue < 0) ? 0 : bValue;
+
             shadowBrush.Color = Color.FromArgb((int)aValue, (int)rValue, (int)gValue, (int)bValue);
             #endregion
 
