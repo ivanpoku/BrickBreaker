@@ -112,6 +112,12 @@
     <Compile Include="Screens\PauseScreen.Designer.cs">
       <DependentUpon>PauseScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\WinScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\WinScreen.Designer.cs">
+      <DependentUpon>WinScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartLevelScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\PauseScreen.resx">
       <DependentUpon>PauseScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\WinScreen.resx">
+      <DependentUpon>WinScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartLevelScreen.resx">
       <DependentUpon>StartLevelScreen.cs</DependentUpon>
@@ -518,6 +527,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\flame.png" />
+    </ItemGroup>
+    <None Include="Resources\netherackBkgd1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\endBkgd.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boss.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\piano2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\end_portal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fireball.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

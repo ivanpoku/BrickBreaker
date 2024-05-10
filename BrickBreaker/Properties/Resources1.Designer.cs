@@ -100,12 +100,30 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream bkgdMusic {
+            get {
+                return ResourceManager.GetStream("bkgdMusic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap book_enchanted {
             get {
                 object obj = ResourceManager.GetObject("book_enchanted", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream boss {
+            get {
+                return ResourceManager.GetStream("boss", resourceCulture);
             }
         }
         
@@ -260,9 +278,29 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap end_portal {
+            get {
+                object obj = ResourceManager.GetObject("end_portal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap end_stone {
             get {
                 object obj = ResourceManager.GetObject("end_stone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap endBkgd {
+            get {
+                object obj = ResourceManager.GetObject("endBkgd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,6 +341,13 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap flame {
             get {
                 object obj = ResourceManager.GetObject("flame", resourceCulture);
+
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        internal static System.Drawing.Bitmap fireball {
+            get {
+                object obj = ResourceManager.GetObject("fireball", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -490,7 +535,8 @@ namespace BrickBreaker.Properties {
         ///	&lt;/brick&gt;
         ///	&lt;brick&gt;
         ///		&lt;x&gt;461&lt;/x&gt;
-        ///		&lt;y&gt;173&lt;/y&gt;        /// [rest of string was truncated]&quot;;.
+        ///		&lt;y&gt;173&lt;/y&gt;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Level1 {
             get {
@@ -797,7 +843,8 @@ namespace BrickBreaker.Properties {
         ///	&lt;/brick&gt;
         ///	&lt;brick&gt;
         ///		&lt;x&gt;511&lt;/x&gt;
-        ///		&lt;y&gt;223&lt;/y&gt;        /// [rest of string was truncated]&quot;;.
+        ///		&lt;y&gt;223&lt;/y&gt;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Level4 {
             get {
@@ -900,7 +947,8 @@ namespace BrickBreaker.Properties {
         ///	&lt;/brick&gt;
         ///	&lt;brick&gt;
         ///		&lt;x&gt;161&lt;/x&gt;
-        ///		&lt;y&gt;93&lt;/y&gt;        /// [rest of string was truncated]&quot;;.
+        ///		&lt;y&gt;93&lt;/y&gt;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Level6 {
             get {
@@ -951,7 +999,8 @@ namespace BrickBreaker.Properties {
         ///	&lt;/brick&gt;
         ///	&lt;brick&gt;
         ///		&lt;x&gt;472&lt;/x&gt;
-        ///		&lt;y&gt;190&lt;/y&gt;        /// [rest of string was truncated]&quot;;.
+        ///		&lt;y&gt;190&lt;/y&gt;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Level7 {
             get {
@@ -1165,6 +1214,16 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap nether_portal {
             get {
                 object obj = ResourceManager.GetObject("nether_portal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap netherackBkgd1 {
+            get {
+                object obj = ResourceManager.GetObject("netherackBkgd1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

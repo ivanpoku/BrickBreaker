@@ -204,7 +204,7 @@ namespace BrickBreaker
                 Color.FromArgb(50, 105, 50, 250), //SunOne
                 Color.FromArgb(150, 255, 255, 255), //SunTwo
                 Color.FromArgb(65, 5, 25, 70), //ShadowOne
-                Color.FromArgb(80, 255, 255, 255), //ShadowTwo
+                Color.FromArgb(80, 0, 0, 0), //ShadowTwo
                 },
             };
 
@@ -225,6 +225,20 @@ namespace BrickBreaker
 
             lives = MAX_LIVES;
             timerToSecondsConversion = (double)1000 / (double)(gameTimer.Interval);
+
+            if (Form1.IsWithinRange(Form1.currentLevel, 1, 7) || (Form1.IsWithinRange(Form1.currentLevel, 10, 11)))
+            {
+                BackgroundImage = Properties.Resources.minecraftBkgd;
+            }
+            if (Form1.IsWithinRange(Form1.currentLevel, 8, 9))
+            {
+                BackgroundImage = Properties.Resources.netherackBkgd1;
+            }
+            if (Form1.IsWithinRange(Form1.currentLevel, 12, 12))
+            {
+                BackColor = Color.Black;
+                BackgroundImage = null;
+            }
 
             //Start immidiately, or give the player a StartLevelScreen first.
             if (immidiateStart) { gameTimer.Enabled = true; }
@@ -390,7 +404,7 @@ namespace BrickBreaker
 
             Refresh();
             Graphics g = this.CreateGraphics();
-            g.FillRectangle(new SolidBrush(Color.FromArgb(30, 0, 0, 0)), new Rectangle(0, 0, right, down));
+            g.FillRectangle(new SolidBrush(Color.FromArgb(50, 0, 0, 0)), new Rectangle(0, 0, right, down));
 
             Task.Delay(800).Wait();
 
@@ -398,6 +412,8 @@ namespace BrickBreaker
 
         void BlockCollision(Block b, List<String> tools, int strength, int initialHitStrength)
         {
+            //WinCondition(); //used for testing
+
             b.runCollision(tools, strength, initialHitStrength); //should be switched to entirely, no lines below
             if (b.hp < 1)
             {
@@ -535,6 +551,12 @@ namespace BrickBreaker
             rValue = (((double)shadowColorOne.R * (dayPercentage)) + ((double)shadowColorTwo.R * (1 - dayPercentage)));
             gValue = (((double)shadowColorOne.G * (dayPercentage)) + ((double)shadowColorTwo.G * (1 - dayPercentage)));
             bValue = (((double)shadowColorOne.B * (dayPercentage)) + ((double)shadowColorTwo.B * (1 - dayPercentage)));
+
+            aValue = (aValue < 0) ? 0 : aValue;
+            rValue = (rValue < 0) ? 0 : rValue;
+            gValue = (gValue < 0) ? 0 : gValue;
+            bValue = (bValue < 0) ? 0 : bValue;
+
             shadowBrush.Color = Color.FromArgb((int)aValue, (int)rValue, (int)gValue, (int)bValue);
             #endregion
 
@@ -558,15 +580,32 @@ namespace BrickBreaker
 
         public void WinCondition()
         {
-            Form1.currentLevel = (Form1.currentLevel == 12) ? 1 : (Form1.currentLevel + 1);
+            if (Form1.currentLevel == 12)
+            {
+                Form1.currentLevel = 1;
+                gameTimer.Enabled = false;
 
-            Form form = this.FindForm();
-            GameScreen gs = new GameScreen(false);
+                Form form = this.FindForm();
+                WinScreen ws = new WinScreen();
 
-            gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
+                ws.Location = new Point((form.Width - ws.Width) / 2, (form.Height - ws.Height) / 2);
 
-            form.Controls.Add(gs);
-            form.Controls.Remove(this);
+                form.Controls.Add(ws);
+                form.Controls.Remove(this);
+            }
+            else
+            {
+                Form1.currentLevel++;
+                gameTimer.Enabled = false;
+
+                Form form = this.FindForm();
+                GameScreen gs = new GameScreen(false);
+
+                gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
+
+                form.Controls.Add(gs);
+                form.Controls.Remove(this);
+            }
         }
 
         double calculateScore()
@@ -594,6 +633,7 @@ namespace BrickBreaker
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
+
             #region Shadows
             //Draws shadows so everything else is on top
             GraphicsPath gp = new GraphicsPath();
