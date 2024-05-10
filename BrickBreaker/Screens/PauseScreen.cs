@@ -24,11 +24,14 @@ namespace BrickBreaker.Screens
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            Form1.clickSound.Play();
             Application.Exit();
         }
 
         private void levelButton_Click(object sender, EventArgs e)
         {
+            Form1.clickSound.Play();
+
             // Goes to the level screen
             LevelScreen ls = new LevelScreen();
             Form form = this.FindForm();
@@ -56,6 +59,7 @@ namespace BrickBreaker.Screens
 
         void unPause()
         {
+            Form1.clickSound.Play();
             parentScreen.gameTimer.Enabled = true;
             parentScreen.Controls.Remove(this);
             parentScreen.isPaused = false;

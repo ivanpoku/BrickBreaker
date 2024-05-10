@@ -37,12 +37,12 @@ namespace BrickBreaker
         public bool BlockCollision(Block brick)
         {
             //currently unused code, trying to 'weigh' the velocity randomization so we never stray too far from the normal values
-            int xVelDeviation = (int)(((xVel / startingXVel) - 1) * 50);
-            int yVelDeviation = (int)(((yVel / startingYVel) - 1) * 50);
+            int xVelDeviation = (int)((Math.Abs(xVel / startingXVel) - 1) * 100);
+            int yVelDeviation = (int)((Math.Abs(yVel / startingYVel) - 1) * 100);
 
             Random rand = new Random();
-            float speedMultX = (float)(rand.Next(-15, 16) * 0.01 + 1);
-            float speedMultY = (float)(rand.Next(-15, 16) * 0.01 + 1);
+            float speedMultX = (float)(rand.Next((-10 - xVelDeviation), (10 - xVelDeviation)) * 0.01 + 1);
+            float speedMultY = (float)(rand.Next((-10 - yVelDeviation), (10 - yVelDeviation)) * 0.01 + 1);
 
             switch (Form1.CheckCollision(this, brick, brick.lastCollisionTimeStamp))
             {
@@ -84,12 +84,12 @@ namespace BrickBreaker
         public bool PaddleCollision(Paddle paddle)
         {
             //currently unused code, trying to 'weigh' the velocity randomization so we never stray too far from the normal values
-            int xVelDeviation = (int)(((xVel / startingXVel) - 1) * 50);
-            int yVelDeviation = (int)(((yVel / startingYVel) - 1) * 50);
+            int xVelDeviation = (int)((Math.Abs(xVel / startingXVel) - 1) * 100);
+            int yVelDeviation = (int)((Math.Abs(yVel / startingYVel) - 1) * 100);
 
             Random rand = new Random();
-            float speedMultX = (float)(rand.Next(-15, 16) * 0.01 + 1);
-            float speedMultY = (float)(rand.Next(-15, 16) * 0.01 + 1);
+            float speedMultX = (float)(rand.Next((-10 - xVelDeviation), (10 - xVelDeviation)) * 0.01 + 1);
+            float speedMultY = (float)(rand.Next((-10 - yVelDeviation), (10 - yVelDeviation)) * 0.01 + 1);
 
             switch (Form1.CheckCollision(this, paddle, paddle.lastCollisionTimeStamp))
             {

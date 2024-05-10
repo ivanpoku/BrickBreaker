@@ -23,10 +23,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 using System.Drawing.Drawing2D;
 using static System.Net.Mime.MediaTypeNames;
 
+
 namespace BrickBreaker
 {
     public partial class GameScreen : UserControl
     {
+        bool timerKills = false; //Set to true if you want the game to have a timer that can kill you
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
@@ -40,6 +42,7 @@ namespace BrickBreaker
         int x, y, width, height, id;
         public bool isPaused = false;
         public static int right, down;
+        int timerIncreases = 0;
 
         // Paddle and Ball objects
         public static Paddle paddle;
@@ -50,6 +53,7 @@ namespace BrickBreaker
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
 
+
         public static System.Drawing.Image player = Properties.Resources.Friend2;
         System.Drawing.Image hearts = Properties.Resources.heart_flash;
         System.Drawing.Image fullXpBar = Properties.Resources.xpBarFull;
@@ -58,6 +62,9 @@ namespace BrickBreaker
         System.Drawing.Bitmap endBkgd = Properties.Resources.endBackground;
         //System.Drawing.Bitmap stoneBkgd = Properties.Resources.stonebkgd;
         System.Drawing.Bitmap dirtBkgd = Properties.Resources.minecraftBkgd;
+        System.Drawing.Image player = Properties.Resources.Friend2;
+        System.Drawing.Image hearts = Properties.Resources.heart_flash;
+        System.Drawing.Image fullXpBar = Properties.Resources.xpBarFull;
 
         Rectangle xpBarRegion;
 
@@ -205,7 +212,7 @@ namespace BrickBreaker
                 Color.FromArgb(50, 105, 50, 250), //SunOne
                 Color.FromArgb(150, 255, 255, 255), //SunTwo
                 Color.FromArgb(65, 5, 25, 70), //ShadowOne
-                Color.FromArgb(80, 255, 255, 255), //ShadowTwo
+                Color.FromArgb(80, 0, 0, 0), //ShadowTwo
                 },
             };
 
@@ -223,8 +230,25 @@ namespace BrickBreaker
 
 
             projectiles.Clear();
+            activePowerups.Clear();
+            fallingPowerups.Clear();
+
             lives = MAX_LIVES;
             timerToSecondsConversion = (double)1000 / (double)(gameTimer.Interval);
+
+            if (Form1.IsWithinRange(Form1.currentLevel, 1, 7) || (Form1.IsWithinRange(Form1.currentLevel, 10, 11)))
+            {
+                BackgroundImage = Properties.Resources.minecraftBkgd;
+            }
+            if (Form1.IsWithinRange(Form1.currentLevel, 8, 9))
+            {
+                BackgroundImage = Properties.Resources.netherackBkgd1;
+            }
+            if (Form1.IsWithinRange(Form1.currentLevel, 12, 12))
+            {
+                BackColor = Color.Black;
+                BackgroundImage = null;
+            }
 
             //Start immidiately, or give the player a StartLevelScreen first.
             if (immidiateStart) { gameTimer.Enabled = true; }
@@ -245,7 +269,7 @@ namespace BrickBreaker
 
             // setup starting paddle values and create paddle object
             int paddleWidth = 80;
-            int paddleHeight = 20;
+            int paddleHeight = 30;
             int paddleX = ((this.Width / 2) - (paddleWidth / 2));
             int paddleY = (this.Height - paddleHeight) - 60;
             int paddleSpeed = 9;
@@ -259,7 +283,6 @@ namespace BrickBreaker
             int xSpeed = 5;
             int ySpeed = 5;
             int ballSize = 20;
-
 
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
             resetBall();
@@ -382,13 +405,25 @@ namespace BrickBreaker
 
         void resetBall()
         {
+            paddle.x = (this.Width / 2) - (paddle.width / 2);
+            paddle.y = (this.Height - paddle.height) - 60;
+
             ball.x = ((paddle.x - (ball.radius * 2)) + (paddle.width / 2));
             ball.y = paddle.y - (ball.radius * 2) - paddle.height;
             ball.yVel = -1 * Math.Abs(ball.yVel);
+
+            Refresh();
+            Graphics g = this.CreateGraphics();
+            g.FillRectangle(new SolidBrush(Color.FromArgb(50, 0, 0, 0)), new Rectangle(0, 0, right, down));
+
+            Task.Delay(800).Wait();
+
         }
 
         void BlockCollision(Block b, List<String> tools, int strength, int initialHitStrength)
         {
+            //WinCondition(); //used for testing
+
             b.runCollision(tools, strength, initialHitStrength); //should be switched to entirely, no lines below
             if (b.hp < 1)
             {
@@ -414,8 +449,9 @@ namespace BrickBreaker
         }
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            timerIncreases++;
             currentTime--;
-            if (currentTime < 0) { lives = 0; }
+            if (currentTime < 0 && timerKills) { lives = 0; } //This was another thing we used for when you could also die from the timer running out, we just decided it doesnt fit the game.
 
             sunPoint = new PointF(right - (float)(((double)right / (double)timeLimit) * (double)currentTime), 0);
 
@@ -434,20 +470,6 @@ namespace BrickBreaker
                 projectiles[p].Move();
             }
 
-            if (ball.WallCollision(this))
-            { //run wall collision and respond if the ball has touched the bottom
-
-                lives--;
-
-                // Moves the ball back to origin
-                resetBall();
-            }
-
-            if (lives == 0)
-            {
-                gameTimer.Enabled = false;
-                OnEnd();
-            }
 
             #region Blocks 
             //Check if ball has collided with any blocks
@@ -540,24 +562,61 @@ namespace BrickBreaker
             rValue = (((double)shadowColorOne.R * (dayPercentage)) + ((double)shadowColorTwo.R * (1 - dayPercentage)));
             gValue = (((double)shadowColorOne.G * (dayPercentage)) + ((double)shadowColorTwo.G * (1 - dayPercentage)));
             bValue = (((double)shadowColorOne.B * (dayPercentage)) + ((double)shadowColorTwo.B * (1 - dayPercentage)));
+
+            aValue = (aValue < 0) ? 0 : aValue;
+            rValue = (rValue < 0) ? 0 : rValue;
+            gValue = (gValue < 0) ? 0 : gValue;
+            bValue = (bValue < 0) ? 0 : bValue;
+
             shadowBrush.Color = Color.FromArgb((int)aValue, (int)rValue, (int)gValue, (int)bValue);
             #endregion
+
+            if (ball.WallCollision(this))
+            { //run wall collision and respond if the ball has touched the bottom
+
+                lives--;
+
+                // Moves the ball back to origin
+                resetBall();
+            }
+
+            if (lives == 0)
+            {
+                gameTimer.Enabled = false;
+                OnEnd();
+            }
             Refresh();
         }
 
 
         public void WinCondition()
         {
-            Form1.currentLevel = (Form1.currentLevel == 12) ? 1 : (Form1.currentLevel + 1);
+            if (Form1.currentLevel == 12)
+            {
+                Form1.currentLevel = 1;
+                gameTimer.Enabled = false;
 
-            Form form = this.FindForm();
-            GameScreen gs = new GameScreen(false);
+                Form form = this.FindForm();
+                WinScreen ws = new WinScreen();
 
-            gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
+                ws.Location = new Point((form.Width - ws.Width) / 2, (form.Height - ws.Height) / 2);
 
-            form.Controls.Add(gs);
-            form.Controls.Remove(this);
-        
+                form.Controls.Add(ws);
+                form.Controls.Remove(this);
+            }
+            else
+            {
+                Form1.currentLevel++;
+                gameTimer.Enabled = false;
+
+                Form form = this.FindForm();
+                GameScreen gs = new GameScreen(false);
+
+                gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
+
+                form.Controls.Add(gs);
+                form.Controls.Remove(this);
+            }
         }
 
         double calculateScore()
@@ -586,6 +645,7 @@ namespace BrickBreaker
 
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
+
             #region Shadows
             //Draws shadows so everything else is on top
             GraphicsPath gp = new GraphicsPath();
@@ -614,7 +674,9 @@ namespace BrickBreaker
 
             // Draws paddle
             Rectangle paddleRect = new Rectangle(paddle.x, paddle.y, paddle.width, paddle.height);
+
             e.Graphics.DrawImage(player, paddleRect);
+
 
             #region Blocks
             // Draws blocks
@@ -674,8 +736,15 @@ namespace BrickBreaker
             int percentage = (timeLimit - currentTime);
             int fontSize = (int)(percentage * fontIncrease) + MIN_FONT_SIZE;
             int colorSize = (int)(percentage * ((double)255 / (double)timeLimit));
+            colorSize = (colorSize > 255) ? 255 : colorSize;
             Color fontColor = Color.FromArgb(255, colorSize, 255, colorSize);
-            string timeLimitString = "" + (double)currentTime / timerToSecondsConversion;
+            //We found this a bit confusing on the final days because its pretty much random whether you go faster or slower, so we changed this to just be a timer up.
+            string timeLimitString = "" + timerIncreases / timerToSecondsConversion;
+            if (timerKills)
+            {
+                timeLimitString = "" + (double)currentTime / timerToSecondsConversion; //This would display your time compared to the max time in the level,
+            }
+            fontSize = (fontSize > MAX_FONT_SIZE) ? MAX_FONT_SIZE : fontSize;
             e.Graphics.DrawString(timeLimitString, new Font(Form1.pfc.Families[0], fontSize), new SolidBrush(fontColor), new PointF(timeDisplayPoint.X - fontSize, timeDisplayPoint.Y - fontSize));
             #endregion
 

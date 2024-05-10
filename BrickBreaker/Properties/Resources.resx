@@ -376,6 +376,21 @@
   <data name="wheat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wheat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="longerStev" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\longerStev.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="longestStev" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\longestStev.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="longStev" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\longstev.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sidewaysSteve" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sidewaysSteve.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="smallStev" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smallStev.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ancientDebrisBreak_wav" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ancientDebrisBreak.wav.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -414,5 +429,29 @@
   </data>
   <data name="snowmanFace" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\snowmanFace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+</data>
+  <data name="endBkgd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\endBkgd.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="netherackBkgd1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\netherackBkgd1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="titleMusic_wav" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\titleMusic.wav.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="flame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+</data>
+  <data name="bkgdMusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\piano2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boss.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="end_portal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\end_portal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fireball" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fireball.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

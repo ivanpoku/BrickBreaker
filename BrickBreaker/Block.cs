@@ -41,67 +41,75 @@ namespace BrickBreaker
         new string [] {"Hp", "Weak To", "Png", "Chance Of Powerup (0 - 10)", "ID of Powerup", "Sound On Break"},
 
         new string [] {"1", "Shovel", "grass_block", "10", "2", "grass"},        //Grass Block       //Seeds
-        new string [] {"3", "Axe", "oak_log", "1", "1", "grass"},                //Oak Wood Log         
+        new string [] {"2", "Axe", "oak_log", "1", "1", "grass"},                //Oak Wood Log         
         new string [] {"1", "Shears", "oak_leaves", "13", "1", "grass"},         //Oak Leaves        //Apple
-        new string [] {"3", "Axe", "oak_planks", "1", "1", "grass"},             //Oak Planks        
+        new string [] {"2", "Axe", "oak_planks", "1", "1", "grass"},             //Oak Planks        
         new string [] {"2", "Pick", "stone", "10", "3", "grass"},                //Stone             //Stone Pick
         
         new string [] {"2", "Pick", "iron_ore", "90", "4", "grass"},              //Iron Ore          //Iron Ingot
-        new string [] {"3", "Pick", "gold_ore", "90", "5", "grass"},              //Gold Ore          //Gold Ingot
+        new string [] {"1", "Pick", "gold_ore", "90", "5", "grass"},              //Gold Ore          //Gold Ingot
         new string [] {"2", "Pick", "diamond_ore", "90", "6", "grass"},           //Diamond Ore       //Diamond
-        new string [] {"5", "Pick", "obsidian", "20", "3", "grass"},              //Obsidian         
-        new string [] {"2", "Pick", "netherrack", "11", "3", "grass"},            //Netherack        
+        new string [] {"3", "Pick", "obsidian", "20", "3", "grass"},              //Obsidian         
+        new string [] {"1", "Pick", "netherrack", "11", "3", "grass"},            //Netherack        
         
-        new string [] {"3", "Pick", "quartz_ore", "90", "7", "grass"},            //Quartz Ore        //Quartz
+
+        new string [] {"2", "Pick", "quartz_ore", "90", "7", "grass"},            //Quartz Ore        //Quartz
         new string [] {"4", "Pick", "netherite", "90", "8", "grass"},             //Netherite         //Netherite Ingot
         new string [] {"10", "Sword", "endframe_top", "90", "9", "grass"},        //End Portal Block  //Ender Eye
-        new string [] {"4", "Pick", "stonebrick", "12", "10", "grass"},            //Stone Bricks      //Brick
-        new string [] {"4", "Pick", "end_stone", "20", "3", "grass"},             //Endstone          
+        new string [] {"2", "Pick", "stonebrick", "12", "10", "grass"},            //Stone Bricks      //Brick
+        new string [] {"1", "Pick", "end_stone", "20", "3", "grass"},             //Endstone          
         
-        new string [] {"4", "Pick", "end_bricks", "15", "3", "grass"},            //Endstone Bricks   
-        new string [] {"2", "Shovel", "sand", "1", "1", "grass"},                //Sand             
-        new string [] {"2", "Shovel", "gravel", "1", "1", "grass"},              //Gravel           
-        new string [] {"4", "Pick", "coal_ore", "90", "11", "grass"},              //Coal Ore          //Coal
-        new string [] {"2", "Sword", "water", "71", "12", "grass"},                //Water             //Bubbles
+        new string [] {"2", "Pick", "end_bricks", "15", "3", "grass"},            //Endstone Bricks   
+        new string [] {"1", "Shovel", "sand", "1", "1", "grass"},                //Sand             
+        new string [] {"1", "Shovel", "gravel", "1", "1", "grass"},              //Gravel           
+        new string [] {"2", "Pick", "coal_ore", "90", "11", "grass"},              //Coal Ore          //Coal
+        new string [] {"1", "Sword", "water", "71", "12", "grass"},                //Water             //Bubbles
+
         
-        new string [] {"2", "Sword", "lava", "71", "13", "grass"},                //Lava              //
+        new string [] {"1", "Sword", "lava", "71", "13", "grass"},                //Lava              //
         new string [] {"3", "Sword", "portal", "1", "1", "grass" },              //Nether Portal     
         new string [] {"2", "Sword", "bedrock", "1", "1", "grass"},              //Bedrock           
         new string [] {"4", "Sword", "dragon_egg", "1", "1", "grass"},           //Dragon Egg        
-        new string [] {"3", "Pick", "cobblestone", "1", "1", "grass"},           //Cobblestone      
+        new string [] {"1", "Pick", "cobblestone", "1", "1", "grass"},           //Cobblestone      
 
         };
             SoundPlayer[] soundData = new SoundPlayer[]
             {
-                new SoundPlayer(Resources.dirtBreak_wav),   //Grass
-                new SoundPlayer(Resources.dirtBreak_wav),   //Oak Wood Log
-                new SoundPlayer(Resources.dirtBreak_wav),   //Oak Leaves
-                new SoundPlayer(Resources.dirtBreak_wav),   //Oak Planks
-                new SoundPlayer(Resources.dirtBreak_wav),   //Stone
+                new SoundPlayer(),
 
-                new SoundPlayer(Resources.dirtBreak_wav),   //Iron Ore
-                new SoundPlayer(Resources.dirtBreak_wav),   //Gold Ore
-                new SoundPlayer(Resources.dirtBreak_wav),   //Diamond Ore
-                new SoundPlayer(Resources.dirtBreak_wav),   //Obsidian
+                new SoundPlayer(Resources.dirtBreak_wav),   //Grass
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Oak Wood Log
+                new SoundPlayer(Resources.dirtBreak_wav),   //Oak Leaves
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Oak Planks
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Stone
+
+
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Iron Ore
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Gold Ore
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Diamond Ore
+
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Obsidian
                 new SoundPlayer(Resources.dirtBreak_wav),   //Netherrack
 
-                new SoundPlayer(Resources.dirtBreak_wav),   //Quartz Ore
-                new SoundPlayer(Resources.dirtBreak_wav),   //Netherite
-                new SoundPlayer(Resources.dirtBreak_wav),   //End Portal Block
-                new SoundPlayer(Resources.dirtBreak_wav),   //Stone Bricks
-                new SoundPlayer(Resources.dirtBreak_wav),   //Endstone
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Quartz Ore
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Netherite
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //End Portal Block
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Stone Bricks
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Endstone
                         
-                new SoundPlayer(Resources.dirtBreak_wav),   //Endstone Bricks
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Endstone Bricks
                 new SoundPlayer(Resources.dirtBreak_wav),   //Sand
                 new SoundPlayer(Resources.dirtBreak_wav),   //Gravel
-                new SoundPlayer(Resources.dirtBreak_wav),   //Coal Ore
-                new SoundPlayer(Resources.dirtBreak_wav),   //Water
 
-                new SoundPlayer(Resources.dirtBreak_wav),   //Lava
-                new SoundPlayer(Resources.dirtBreak_wav),   //Nether Portal
-                new SoundPlayer(Resources.dirtBreak_wav),   //Bedrock
-                new SoundPlayer(Resources.dirtBreak_wav),   //Dragon Egg
-                new SoundPlayer(Resources.dirtBreak_wav),   //Cobblestone
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Coal Ore
+                new SoundPlayer(Resources.waterBreak_wav),   //Water
+
+                new SoundPlayer(Resources.waterBreak_wav),   //Lava
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Nether Portal
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Bedrock
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Dragon Egg
+                new SoundPlayer(Resources.ancientDebrisBreak_wav),   //Cobblestone
+
 
             };
 
@@ -109,8 +117,8 @@ namespace BrickBreaker
 
 
             x = _x;
-            y = _y;
             width = width_;
+            y = _y;
             height = height_;
             id = id_;
 
@@ -123,7 +131,7 @@ namespace BrickBreaker
             image = (Image)rm.GetObject(blockData[id][2]);
 
             //Get the correct Sound
-            onBreak = soundData[id];
+            onBreak = soundData[id]; //blow up
 
             //Find if the block should contain powerups
             if (randomOneHundred <= Convert.ToInt16(blockData[id][3]))

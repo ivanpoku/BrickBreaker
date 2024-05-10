@@ -44,12 +44,12 @@
             this.levelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.levelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.levelButton.ForeColor = System.Drawing.Color.White;
-            this.levelButton.Location = new System.Drawing.Point(204, 405);
-            this.levelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.levelButton.Location = new System.Drawing.Point(210, 386);
+            this.levelButton.Margin = new System.Windows.Forms.Padding(4);
             this.levelButton.Name = "levelButton";
-            this.levelButton.Size = new System.Drawing.Size(732, 49);
+            this.levelButton.Size = new System.Drawing.Size(542, 49);
             this.levelButton.TabIndex = 5;
-            this.levelButton.Text = "Level";
+            this.levelButton.Text = "L E V E L";
             this.levelButton.UseVisualStyleBackColor = false;
             this.levelButton.Click += new System.EventHandler(this.levelButton_Click);
             // 
@@ -60,12 +60,12 @@
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.White;
-            this.exitButton.Location = new System.Drawing.Point(204, 471);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exitButton.Location = new System.Drawing.Point(210, 452);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(732, 49);
+            this.exitButton.Size = new System.Drawing.Size(542, 49);
             this.exitButton.TabIndex = 4;
-            this.exitButton.Text = "Exit";
+            this.exitButton.Text = "E X I T";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
@@ -78,12 +78,12 @@
             this.replayButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.replayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.replayButton.ForeColor = System.Drawing.Color.White;
-            this.replayButton.Location = new System.Drawing.Point(204, 336);
-            this.replayButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.replayButton.Location = new System.Drawing.Point(210, 317);
+            this.replayButton.Margin = new System.Windows.Forms.Padding(4);
             this.replayButton.Name = "replayButton";
-            this.replayButton.Size = new System.Drawing.Size(732, 49);
+            this.replayButton.Size = new System.Drawing.Size(542, 49);
             this.replayButton.TabIndex = 3;
-            this.replayButton.Text = "Play Again";
+            this.replayButton.Text = "P L A Y    A G A I N";
             this.replayButton.UseVisualStyleBackColor = false;
             this.replayButton.Click += new System.EventHandler(this.replayButton_Click);
             // 
@@ -93,10 +93,10 @@
             this.resultLabel.BackColor = System.Drawing.Color.Transparent;
             this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.resultLabel.Location = new System.Drawing.Point(411, 154);
+            this.resultLabel.Location = new System.Drawing.Point(360, 149);
             this.resultLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(292, 69);
+            this.resultLabel.Size = new System.Drawing.Size(235, 55);
             this.resultLabel.TabIndex = 6;
             this.resultLabel.Text = "You Died.";
             // 
@@ -106,10 +106,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(416, 273);
+            this.label2.Location = new System.Drawing.Point(338, 249);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(215, 42);
+            this.label2.Size = new System.Drawing.Size(169, 33);
             this.label2.TabIndex = 7;
             this.label2.Text = "Your Score:";
             // 
@@ -119,10 +119,10 @@
             this.scoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.scoreLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.scoreLabel.Location = new System.Drawing.Point(659, 273);
+            this.scoreLabel.Location = new System.Drawing.Point(581, 249);
             this.scoreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(39, 42);
+            this.scoreLabel.Size = new System.Drawing.Size(31, 33);
             this.scoreLabel.TabIndex = 8;
             this.scoreLabel.Text = "#";
             // 
@@ -136,9 +136,9 @@
             this.Controls.Add(this.levelButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.replayButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EndScreen";
-            this.Size = new System.Drawing.Size(1137, 666);
+            this.Size = new System.Drawing.Size(975, 667);
             this.ResumeLayout(false);
             this.PerformLayout();
 

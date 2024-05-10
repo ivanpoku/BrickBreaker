@@ -21,6 +21,8 @@ namespace BrickBreaker.Screens
 
         private void replayButton_Click(object sender, EventArgs e)
         {
+            Form1.clickSound.Play();
+
             GameScreen gs = new GameScreen(true);
             Form form = this.FindForm();
 
@@ -32,6 +34,8 @@ namespace BrickBreaker.Screens
 
         private void levelButton_Click(object sender, EventArgs e)
         {
+            Form1.clickSound.Play();
+
             // Goes to the level screen
             LevelScreen ls = new LevelScreen();
             Form form = this.FindForm();
@@ -44,6 +48,7 @@ namespace BrickBreaker.Screens
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            Form1.clickSound.Play();
             Application.Exit();
         }
     }

@@ -22,17 +22,21 @@ namespace BrickBreaker
         {
             InitializeComponent();
             Form1.SetLevelFonts(this);
+            Form1.titleMusic.Play();
 
             titleRec = new Rectangle(0,-50,this.Right, 500);
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+            Form1.clickSound.Play();
             Application.Exit();
         }
 
         private void playButton_Click(object sender, EventArgs e)
         {
+            Form1.clickSound.Play();
+
             // Goes to the game screen
             GameScreen gs = new GameScreen(false);
             Form form = this.FindForm();
@@ -50,6 +54,8 @@ namespace BrickBreaker
 
         private void levelButton_Click(object sender, EventArgs e)
         {
+            Form1.clickSound.Play();
+
             // Goes to the level screen
             LevelScreen ls = new LevelScreen();
             Form form = this.FindForm();
