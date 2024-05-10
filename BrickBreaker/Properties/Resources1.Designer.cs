@@ -338,6 +338,13 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap flame {
+            get {
+                object obj = ResourceManager.GetObject("flame", resourceCulture);
+
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         internal static System.Drawing.Bitmap fireball {
             get {
                 object obj = ResourceManager.GetObject("fireball", resourceCulture);
@@ -528,7 +535,8 @@ namespace BrickBreaker.Properties {
         ///	&lt;/brick&gt;
         ///	&lt;brick&gt;
         ///		&lt;x&gt;461&lt;/x&gt;
-        ///		&lt;y&gt;173&lt;/y&gt;        /// [rest of string was truncated]&quot;;.
+        ///		&lt;y&gt;173&lt;/y&gt;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Level1 {
             get {
@@ -835,7 +843,8 @@ namespace BrickBreaker.Properties {
         ///	&lt;/brick&gt;
         ///	&lt;brick&gt;
         ///		&lt;x&gt;511&lt;/x&gt;
-        ///		&lt;y&gt;223&lt;/y&gt;        /// [rest of string was truncated]&quot;;.
+        ///		&lt;y&gt;223&lt;/y&gt;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Level4 {
             get {
@@ -938,7 +947,8 @@ namespace BrickBreaker.Properties {
         ///	&lt;/brick&gt;
         ///	&lt;brick&gt;
         ///		&lt;x&gt;161&lt;/x&gt;
-        ///		&lt;y&gt;93&lt;/y&gt;        /// [rest of string was truncated]&quot;;.
+        ///		&lt;y&gt;93&lt;/y&gt;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Level6 {
             get {
@@ -989,7 +999,8 @@ namespace BrickBreaker.Properties {
         ///	&lt;/brick&gt;
         ///	&lt;brick&gt;
         ///		&lt;x&gt;472&lt;/x&gt;
-        ///		&lt;y&gt;190&lt;/y&gt;        /// [rest of string was truncated]&quot;;.
+        ///		&lt;y&gt;190&lt;/y&gt;
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Level7 {
             get {

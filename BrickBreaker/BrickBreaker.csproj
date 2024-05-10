@@ -526,6 +526,8 @@
     <None Include="Resources\titleMusic.wav.wav" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\flame.png" />
+    </ItemGroup>
     <None Include="Resources\netherackBkgd1.jpg" />
   </ItemGroup>
   <ItemGroup>

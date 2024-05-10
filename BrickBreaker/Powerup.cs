@@ -230,13 +230,13 @@ namespace BrickBreaker
                     }
                     break;
                 case 9: //Ender Eye
-                    if (activeTime % (57 - (3 * strength)) == 0)
+                    if (activeTime % (40 - (3 * strength)) == 0)
                     {
                         string[] tools = new string[]
                      {
                             "Pick", "Sword"
                     };
-                        Projectile p = new Projectile(0, -4 - (3 * strength), Resources.ender_eye, 10 + (5 * strength), tools, 1);
+                        Projectile p = new Projectile(0, -4 - (3 * strength), Resources.ender_eye, 10 + (5 * strength), tools, 3);
                         GameScreen.projectiles.Add(p);
                     }
                     break;
@@ -254,6 +254,18 @@ namespace BrickBreaker
                     }
                     break;
                 case 11: //Coal
+
+                    if (activeTime % (20 - (1 * strength)) == 0)
+                    {
+                        string[] tools = new string[]
+                     {
+                            "Axe", "Pick", "Sword"
+                    };
+                        Projectile p = new Projectile(0, -4 - (3 * strength), Resources.flame, 10 + (3 * strength), tools, 1);
+
+                        GameScreen.projectiles.Add(p);
+                    }
+
                     break;
                 case 12: //Water
                     if (activeTime % 8 == 0)
