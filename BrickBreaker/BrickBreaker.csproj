@@ -528,6 +528,7 @@
   <ItemGroup>
     <None Include="Resources\flame.png" />
     </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\netherackBkgd1.jpg" />
   </ItemGroup>
   <ItemGroup>
