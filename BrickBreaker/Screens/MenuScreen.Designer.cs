@@ -33,6 +33,7 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.levelButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.skinsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // playButton
@@ -103,12 +104,30 @@
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.titleLabel.UseCompatibleTextRendering = true;
             // 
+            // skinsButton
+            // 
+            this.skinsButton.BackColor = System.Drawing.Color.DimGray;
+            this.skinsButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.skinsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.skinsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.skinsButton.ForeColor = System.Drawing.Color.White;
+            this.skinsButton.Location = new System.Drawing.Point(14, 15);
+            this.skinsButton.Name = "skinsButton";
+            this.skinsButton.Size = new System.Drawing.Size(114, 36);
+            this.skinsButton.TabIndex = 4;
+            this.skinsButton.Text = "S K I N S";
+            this.skinsButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.skinsButton.UseCompatibleTextRendering = true;
+            this.skinsButton.UseVisualStyleBackColor = false;
+            this.skinsButton.Click += new System.EventHandler(this.skinsButton_Click);
+            // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.Controls.Add(this.skinsButton);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.levelButton);
             this.Controls.Add(this.exitButton);
@@ -126,5 +145,6 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button levelButton;
         private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Button skinsButton;
     }
 }

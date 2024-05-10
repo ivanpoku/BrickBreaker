@@ -54,6 +54,14 @@ namespace BrickBreaker
         List<Block> blocks = new List<Block>();
 
 
+        public static System.Drawing.Image player = Properties.Resources.Friend2;
+        System.Drawing.Image hearts = Properties.Resources.heart_flash;
+        System.Drawing.Image fullXpBar = Properties.Resources.xpBarFull;
+
+        System.Drawing.Bitmap netherBkgd = Properties.Resources.netherBackground;
+        System.Drawing.Bitmap endBkgd = Properties.Resources.endBackground;
+        //System.Drawing.Bitmap stoneBkgd = Properties.Resources.stonebkgd;
+        System.Drawing.Bitmap dirtBkgd = Properties.Resources.minecraftBkgd;
         System.Drawing.Image player = Properties.Resources.Friend2;
         System.Drawing.Image hearts = Properties.Resources.heart_flash;
         System.Drawing.Image fullXpBar = Properties.Resources.xpBarFull;
@@ -219,6 +227,8 @@ namespace BrickBreaker
 
         public void OnStart(bool immidiateStart)
         {
+
+
             projectiles.Clear();
             activePowerups.Clear();
             fallingPowerups.Clear();
@@ -477,6 +487,7 @@ namespace BrickBreaker
                     {
                         BlockCollision(b, projectiles[p].tools, projectiles[p].strength, 0);
                         if (p < projectiles.Count) { projectiles[p].OnCollision(); }
+
                     }
                 }
 
@@ -631,6 +642,7 @@ namespace BrickBreaker
         {
         }
 
+
         public void GameScreen_Paint(object sender, PaintEventArgs e)
         {
 
@@ -757,10 +769,27 @@ namespace BrickBreaker
 
             #endregion
 
-            if (!gameTimer.Enabled)
+            //Draw Background
+            if (Form1.currentLevel == 8 || Form1.currentLevel == 9)
+            {
+                this.BackgroundImage = netherBkgd;
+            }
+            else if (Form1.currentLevel == 12)
+            {
+                this.BackgroundImage = endBkgd;
+            }
+            else if (Form1.currentLevel == 1 || Form1.currentLevel == 10)
+            {
+                this.BackColor = Color.LightBlue;
+                this.BackgroundImage = null;
+            }
+
+
+                if (!gameTimer.Enabled)
             {
                 e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(180, 0, 0, 0)), new Rectangle(new Point(0, 0), this.Size));
             }
+
         }
     }
 }

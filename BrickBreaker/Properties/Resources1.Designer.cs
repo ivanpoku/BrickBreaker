@@ -111,6 +111,16 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap big_pig_face {
+            get {
+                object obj = ResourceManager.GetObject("big_pig_face", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap book_enchanted {
             get {
                 object obj = ResourceManager.GetObject("book_enchanted", resourceCulture);
@@ -163,6 +173,16 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap bucket_lava {
             get {
                 object obj = ResourceManager.GetObject("bucket_lava", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cake_side {
+            get {
+                object obj = ResourceManager.GetObject("cake_side", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -298,6 +318,12 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap endBackground {
+            get {
+                object obj = ResourceManager.GetObject("endBackground", resourceCulture);
+   return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         internal static System.Drawing.Bitmap endBkgd {
             get {
                 object obj = ResourceManager.GetObject("endBkgd", resourceCulture);
@@ -338,6 +364,12 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fighters {
+            get {
+                object obj = ResourceManager.GetObject("fighters", resourceCulture);
+     return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         internal static System.Drawing.Bitmap flame {
             get {
                 object obj = ResourceManager.GetObject("flame", resourceCulture);
@@ -1221,6 +1253,12 @@ namespace BrickBreaker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap netherBackground {
+            get {
+                object obj = ResourceManager.GetObject("netherBackground", resourceCulture);
+     return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         internal static System.Drawing.Bitmap netherackBkgd1 {
             get {
                 object obj = ResourceManager.GetObject("netherackBkgd1", resourceCulture);
@@ -1384,6 +1422,16 @@ namespace BrickBreaker.Properties {
         internal static System.Drawing.Bitmap snowball {
             get {
                 object obj = ResourceManager.GetObject("snowball", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snowmanFace {
+            get {
+                object obj = ResourceManager.GetObject("snowmanFace", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
