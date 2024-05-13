@@ -59,12 +59,9 @@ namespace BrickBreaker
         System.Drawing.Image fullXpBar = Properties.Resources.xpBarFull;
 
         System.Drawing.Bitmap netherBkgd = Properties.Resources.netherBackground;
-        System.Drawing.Bitmap endBkgd = Properties.Resources.endBackground;
+        System.Drawing.Bitmap endBkgd = Properties.Resources.end_bricks;
         //System.Drawing.Bitmap stoneBkgd = Properties.Resources.stonebkgd;
         System.Drawing.Bitmap dirtBkgd = Properties.Resources.minecraftBkgd;
-        System.Drawing.Image player = Properties.Resources.Friend2;
-        System.Drawing.Image hearts = Properties.Resources.heart_flash;
-        System.Drawing.Image fullXpBar = Properties.Resources.xpBarFull;
 
         Rectangle xpBarRegion;
 
@@ -247,7 +244,7 @@ namespace BrickBreaker
             if (Form1.IsWithinRange(Form1.currentLevel, 12, 12))
             {
                 BackColor = Color.Black;
-                BackgroundImage = null;
+                BackgroundImage = endBkgd;
             }
 
             //Start immidiately, or give the player a StartLevelScreen first.
@@ -262,8 +259,8 @@ namespace BrickBreaker
             right = this.Right;
             down = this.Bottom;
             timeDisplayPoint = new PointF(right / 2, this.Bottom - 30);
-            xpFullRect = xpBarRegion = new Rectangle(0, this.Bottom - 35, this.Right, 35);
-
+            xpFullRect = new Rectangle(0, this.Bottom - 35, this.Right, 35);
+            xpBarRegion = new Rectangle(22, this.Bottom - 25, this.Right - 48, 15);
             //set all button presses to false.
             leftArrowDown = rightArrowDown = false;
 
@@ -436,8 +433,8 @@ namespace BrickBreaker
                 double xpBarPercent = (Double)blocks.Count / blocksNum;
                 if (xpBarPercent != 1)
                 {
-                    xpBarRegion.Width = (int)(right * xpBarPercent);
-                    xpBarRegion.X = (right - xpBarRegion.Width);
+                    xpBarRegion.Width = (int)((right - 48) * xpBarPercent);
+                    xpBarRegion.X = (right - 22 - xpBarRegion.Width);
                 };
 
                 if (blocks.Count == 0)
@@ -768,22 +765,6 @@ namespace BrickBreaker
             }
 
             #endregion
-
-            //Draw Background
-            if (Form1.currentLevel == 8 || Form1.currentLevel == 9)
-            {
-                this.BackgroundImage = netherBkgd;
-            }
-            else if (Form1.currentLevel == 12)
-            {
-                this.BackgroundImage = endBkgd;
-            }
-            else if (Form1.currentLevel == 1 || Form1.currentLevel == 10)
-            {
-                this.BackColor = Color.LightBlue;
-                this.BackgroundImage = null;
-            }
-
 
                 if (!gameTimer.Enabled)
             {
