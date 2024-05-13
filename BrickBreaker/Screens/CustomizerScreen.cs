@@ -20,12 +20,14 @@ namespace BrickBreaker.Screens
             InitializeComponent();
         }
 
+        //paint paddle
         public void CustomizerScreen_Paint(object sender, PaintEventArgs e)
         { 
             Rectangle skinPaddle = new Rectangle(((this.Width / 6) - 40), (this.Height / 2), 160, 40);
             e.Graphics.DrawImage(GameScreen.player, skinPaddle);
         }
 
+        //send to menu screen
         private void backButton_Click(object sender, EventArgs e)
         {
             MenuScreen ms = new MenuScreen();
@@ -38,6 +40,7 @@ namespace BrickBreaker.Screens
         }
 
 
+        //change skins
         #region skinsEditor 
         private void skin1_Click(object sender, EventArgs e)
         {
@@ -70,6 +73,8 @@ namespace BrickBreaker.Screens
         }
         #endregion
 
+
+        //Change backdrop
         #region background Display
 
         private void backgroundDisplay1_Click(object sender, EventArgs e)

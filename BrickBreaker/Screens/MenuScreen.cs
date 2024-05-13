@@ -17,7 +17,6 @@ namespace BrickBreaker
         Image minecraftLogo = Properties.Resources.minecraftLogo;
         Rectangle titleRec = new Rectangle(25, -150, 800, 500);
 
-        //Rectangle titleRec;
         public MenuScreen()
         {
             InitializeComponent();
@@ -27,6 +26,7 @@ namespace BrickBreaker
             titleRec = new Rectangle(0,-50,this.Right, 500);
         }
 
+        //closes game
         private void exitButton_Click(object sender, EventArgs e)
         {
             Form1.clickSound.Play();
@@ -35,6 +35,7 @@ namespace BrickBreaker
 
         private void playButton_Click(object sender, EventArgs e)
         {
+            //Goes to game screen
             Form1.clickSound.Play();
 
             // Goes to the game screen
@@ -49,6 +50,7 @@ namespace BrickBreaker
 
         private void MenuScreen_Paint(object sender, PaintEventArgs e)
         {
+            //Draws title screen
             e.Graphics.DrawImage(minecraftLogo, titleRec);
         }
 

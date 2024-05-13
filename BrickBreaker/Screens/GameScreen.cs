@@ -400,6 +400,8 @@ namespace BrickBreaker
 
         #endregion
 
+
+        //resets ball
         void resetBall()
         {
             paddle.x = (this.Width / 2) - (paddle.width / 2);
@@ -450,6 +452,7 @@ namespace BrickBreaker
             currentTime--;
             if (currentTime < 0 && timerKills) { lives = 0; } //This was another thing we used for when you could also die from the timer running out, we just decided it doesnt fit the game.
 
+            //shadows
             sunPoint = new PointF(right - (float)(((double)right / (double)timeLimit) * (double)currentTime), 0);
 
             currentLightStrength = LIGHT_STRENGTH + Math.Sin((double)currentTime / (double)100) * (double)30;
@@ -459,6 +462,7 @@ namespace BrickBreaker
             Form1.globalTimer++;
             paddle.Move(Convert.ToUInt16(rightArrowDown) - Convert.ToUInt16(leftArrowDown), this);
 
+            //move objects
             ball.Move();
             ball.PaddleCollision(paddle);
 
@@ -585,7 +589,7 @@ namespace BrickBreaker
             Refresh();
         }
 
-
+        //win
         public void WinCondition()
         {
             if (Form1.currentLevel == 12)
@@ -615,7 +619,8 @@ namespace BrickBreaker
                 form.Controls.Remove(this);
             }
         }
-
+        
+        //calculates score
         double calculateScore()
         {
             int innitialScore = (int)(((double)(blocksNum - blocks.Count)) / (double)blocksNum * 10000);
